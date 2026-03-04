@@ -82,7 +82,7 @@ button:hover {
 .heart {
     width: 30px;
     height: 30px;
-    background: #ffffff;
+    background: #ff2d6f;  /* bright pink/red */
     transform: rotate(45deg);
 }
 .heart::before, .heart::after {
@@ -91,7 +91,7 @@ button:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: #ffffff;
+    background: #ff2d6f;  /* bright pink/red */
 }
 .heart::before { top: -15px; left: 0; }
 .heart::after { left: 15px; top: 0; }
@@ -251,9 +251,10 @@ const noBtn = document.getElementById('noBtn');
 let noSize = 120;
 yesBtn.onclick = () => showPage(4);
 noBtn.onmouseover = () => {
-    noSize -= 5; if(noSize<30) noSize=30;
+    noSize -= 5; if(noSize<30) noSize=30;  // never disappear
     noBtn.style.width=noSize+'px';
     noBtn.style.height=noSize/2+'px';
+    noBtn.style.position='absolute';
     noBtn.style.top=Math.random()*(window.innerHeight-60)+'px';
     noBtn.style.left=Math.random()*(window.innerWidth-60)+'px';
 }
