@@ -5,116 +5,101 @@
 <title>Happy Birthday Ramia 🎉</title>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 <style>
-/* === General Styles === */
-body{
+/* ===== General Styles ===== */
+body, html{
     margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
     font-family:'Dancing Script', cursive;
     overflow:hidden;
 }
 section{
     display:none;
-    height:100vh;
-    width:100vw;
+    width:100%;
+    height:100%;
+    position:relative;
     text-align:center;
     padding:50px 20px;
     box-sizing:border-box;
-    position:relative;
-    transition: opacity 0.8s;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    display:flex;
+    transition: opacity 0.8s ease;
 }
 section.active{
-    display:block;
-    opacity:1;
-}
-h1,h2,p{
-    margin:15px 0;
-    text-shadow: 2px 2px 6px #b94d71;
-    color:white;
+    display:flex;
 }
 
-/* === Responsive Text === */
-h1{font-size:calc(32px + 4vw);}
-h2{font-size:calc(24px + 3vw);}
-p{font-size:calc(20px + 1.5vw); line-height:1.6;}
+/* ===== Text ===== */
+h1{font-family:'Pacifico', cursive; font-size:calc(32px + 4vw); color:white; text-shadow:2px 2px 5px #b94d71; margin:20px 0;}
+h2{font-size:calc(24px + 3vw); color:white; text-shadow:2px 2px 5px #b94d71; margin:15px 0;}
+p{font-size:calc(20px + 1.5vw); color:white; text-shadow:1px 1px 4px #b94d71; line-height:1.6;}
 
-/* === Buttons === */
+/* ===== Buttons ===== */
 button{
     padding:15px 35px;
     font-size:calc(18px + 1.5vw);
     border:none;
     border-radius:30px;
     cursor:pointer;
-    margin-top:20px;
     font-family:'Pacifico', cursive;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
-    background: linear-gradient(135deg,#ff6aa3,#ff2d6f);
+    background:linear-gradient(135deg,#ff6aa3,#ff2d6f);
     color:white;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position:relative;
+    margin:10px;
     z-index:10;
+    position:relative;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 button:hover{
-    transform: scale(1.1);
-    box-shadow: 2px 4px 15px rgba(0,0,0,0.5);
+    transform:scale(1.1);
+    box-shadow:2px 4px 15px rgba(0,0,0,0.5);
 }
 
-/* === Hearts & Stars === */
-.heart, .star{
+/* ===== Falling Elements ===== */
+.falling{
     position:absolute;
-    z-index:5;
+    z-index:1;
+    pointer-events:none;
 }
 .heart{
-    width:25px;
-    height:25px;
-    background:#ff3f6f;
-    transform:rotate(45deg);
+    width:25px; height:25px; background:#ff3f6f; transform:rotate(45deg);
 }
 .heart::before, .heart::after{
-    content:"";
-    position:absolute;
-    width:25px;
-    height:25px;
-    background:#ff3f6f;
-    border-radius:50%;
+    content:""; position:absolute; width:25px; height:25px; border-radius:50%; background:#ff3f6f;
 }
 .heart::before{top:-12px; left:0;}
 .heart::after{left:12px; top:0;}
 .star{
-    width:10px; height:10px;
-    background: #fff5f5;
-    border-radius:50%;
+    width:10px; height:10px; background:#fff5f5; border-radius:50%;
 }
-
-/* === Floating Teddy === */
+.sparkle{
+    width:8px; height:8px; background:#fff; border-radius:50%;
+}
 .teddy{
-    position:absolute;
-    width:60px;
-    bottom:10px;
-    animation: teddyBounce 2s infinite alternate;
+    width:60px; position:absolute; bottom:10px; animation:teddyBounce 2s infinite alternate;
 }
 @keyframes teddyBounce{
-    0%{transform:translateY(0);}
-    100%{transform:translateY(-20px);}
+    0%{transform:translateY(0);} 100%{transform:translateY(-20px);}
 }
 
-/* === Fireworks === */
+/* ===== Fireworks ===== */
 .firework{
-    position:absolute;
-    width:12px; height:12px;
-    background:white; border-radius:50%;
-    animation:explode 1s ease-out forwards;
+    width:12px; height:12px; background:white; border-radius:50%; position:absolute; animation:explode 1s ease-out forwards;
 }
 @keyframes explode{0%{transform:scale(0);}100%{transform:scale(2);opacity:0;}}
 
-/* === Page Backgrounds === */
-#page1{background: linear-gradient(to bottom, #ff4d7a, #ff1e5f);}
-#page2{background: linear-gradient(to bottom, #ff1e5f, #ff73a1);}
-#page3{background: linear-gradient(to bottom, #ff3f6f, #ff1e5f);}
-#page4{background: linear-gradient(to bottom, #ff1e5f, #ff85ad);}
+/* ===== Page Backgrounds ===== */
+#page1{background:linear-gradient(to bottom,#ff4d7a,#ff1e5f);}
+#page2{background:linear-gradient(to bottom,#ff1e5f,#ff73a1);}
+#page3{background:linear-gradient(to bottom,#ff3f6f,#ff1e5f);}
+#page4{background:linear-gradient(to bottom,#ff1e5f,#ff85ad);}
 </style>
 </head>
 <body>
 
-<!-- ===== PAGE 1 ===== -->
+<!-- ===== Page 1: Welcome ===== -->
 <section id="page1" class="active">
 <h1>Welcome, Ramia! 💗</h1>
 <p>
@@ -127,7 +112,7 @@ You are truly special, and he respects and values you immensely. 💕
 <button onclick="showPage(2)">Next</button>
 </section>
 
-<!-- ===== PAGE 2 ===== -->
+<!-- ===== Page 2: Birthday Wish ===== -->
 <section id="page2">
 <h1>🎉 Happy Birthday, Ramia! 🎂💖</h1>
 <p>
@@ -141,18 +126,20 @@ You are amazing, and today we celebrate <b>you</b>! 🥳✨
 <button onclick="showPage(3)">Next</button>
 </section>
 
-<!-- ===== PAGE 3 ===== -->
+<!-- ===== Page 3: Quiz ===== -->
 <section id="page3">
 <h1>There is another surprise for you! 🎀</h1>
 <h2>But first, answer a simple question:</h2>
 <h2>Do you also love Taha? 💖</h2>
-<button id="yesBtn" style="top:350px; left:35%;position:absolute;">Yes</button>
-<button id="noBtn" style="top:350px; left:55%;position:absolute;">No</button>
+<div style="margin-top:30px;">
+<button id="yesBtn">Yes</button>
+<button id="noBtn">No</button>
+</div>
 <img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="left:10%;">
 <img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="right:10%;">
 </section>
 
-<!-- ===== PAGE 4 ===== -->
+<!-- ===== Page 4: Surprise ===== -->
 <section id="page4">
 <h1>Hurray! I knew it! 💕</h1>
 <p>
@@ -172,10 +159,9 @@ function showPage(num){
     document.getElementById('page'+num).classList.add('active');
 }
 
-// ===== Hearts & Stars =====
+// ===== Falling Hearts & Stars =====
 function createHeart(){
-    const heart=document.createElement('div');
-    heart.className='heart';
+    const heart=document.createElement('div'); heart.className='heart falling';
     heart.style.left=Math.random()*window.innerWidth+'px';
     heart.style.top='-50px';
     heart.style.animation=`fall ${5+Math.random()*5}s linear`;
@@ -183,34 +169,32 @@ function createHeart(){
     setTimeout(()=>heart.remove(),7000);
 }
 function createHeart2(){
-    const heart=document.createElement('div');
-    heart.className='heart';
+    const heart=document.createElement('div'); heart.className='heart falling';
     heart.style.width='15px'; heart.style.height='15px';
     heart.style.left=Math.random()*window.innerWidth+'px';
-    heart.style.top='100%';
-    heart.style.animation=`float ${4+Math.random()*4}s linear`;
+    heart.style.top='-50px';
+    heart.style.animation=`fall ${4+Math.random()*4}s linear`;
     document.getElementById('page2').appendChild(heart);
     setTimeout(()=>heart.remove(),6000);
 }
 function createFirework(){
-    const fire=document.createElement('div');
-    fire.className='firework';
-    fire.style.left=Math.random()*window.innerWidth+'px';
-    fire.style.top=Math.random()*window.innerHeight+'px';
-    document.getElementById('page2').appendChild(fire);
-    setTimeout(()=>fire.remove(),1000);
+    const f=document.createElement('div'); f.className='firework';
+    f.style.left=Math.random()*window.innerWidth+'px';
+    f.style.top=Math.random()*window.innerHeight+'px';
+    document.getElementById('page2').appendChild(f);
+    setTimeout(()=>f.remove(),1000);
 }
 function createSparkle(){
-    const sp=document.createElement('div');
-    sp.className='star';
+    const sp=document.createElement('div'); sp.className='sparkle';
     sp.style.left=Math.random()*window.innerWidth+'px';
     sp.style.top=Math.random()*window.innerHeight+'px';
     document.getElementById('page4').appendChild(sp);
     setTimeout(()=>sp.remove(),2000);
 }
+
+// ===== Intervals =====
 setInterval(()=>{if(document.getElementById('page1').classList.contains('active')) createHeart();},300);
-setInterval(()=>{if(document.getElementById('page2').classList.contains('active')) createHeart2();},200);
-setInterval(()=>{if(document.getElementById('page2').classList.contains('active')) createFirework();},500);
+setInterval(()=>{if(document.getElementById('page2').classList.contains('active')){ createHeart2(); createFirework(); }},500);
 setInterval(()=>{if(document.getElementById('page4').classList.contains('active')) createSparkle();},300);
 
 // ===== Quiz Buttons =====
@@ -219,8 +203,7 @@ const noBtn=document.getElementById('noBtn');
 let noSize=120;
 yesBtn.onclick=function(){showPage(4);}
 noBtn.onmouseover=function(){
-    noSize-=5;
-    if(noSize<30) noSize=30;
+    noSize-=5; if(noSize<30) noSize=30;
     noBtn.style.width=noSize+'px';
     noBtn.style.height=noSize/2+'px';
     noBtn.style.top=Math.random()*(window.innerHeight-60)+'px';
