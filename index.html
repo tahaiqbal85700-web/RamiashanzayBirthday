@@ -29,6 +29,7 @@ section {
 
 section.active {
     display: flex;
+    overflow: hidden;
 }
 
 /* ===== Text Sizes ===== */
@@ -38,18 +39,24 @@ h1 {
     color: white;
     text-shadow: 3px 3px 8px #b94d71;
     margin: 20px 0;
+    position: relative;
+    z-index: 2;
 }
 h2 {
     font-size: calc(28px + 4vw);
     color: white;
     text-shadow: 3px 3px 8px #b94d71;
     margin: 15px 0;
+    position: relative;
+    z-index: 2;
 }
 p {
     font-size: calc(24px + 2vw);
     color: white;
     text-shadow: 2px 2px 6px #b94d71;
     line-height: 1.8;
+    position: relative;
+    z-index: 2;
 }
 
 /* ===== Buttons ===== */
@@ -60,7 +67,7 @@ button {
     border-radius: 30px;
     cursor: pointer;
     margin: 10px;
-    z-index: 10;
+    z-index: 3;
     position: relative;
     font-family: 'Pacifico', cursive;
     background: linear-gradient(135deg, #ff6aa3, #ff2d6f);
@@ -75,14 +82,14 @@ button:hover {
 /* ===== Falling elements ===== */
 .heart, .star, .sparkle {
     position: absolute;
-    z-index: 1;
     pointer-events: none;
+    z-index: 1; /* behind text */
 }
 
 .heart {
     width: 30px;
     height: 30px;
-    background: #ff2d6f;  /* bright pink/red */
+    background: #ff2d6f;
     transform: rotate(45deg);
 }
 .heart::before, .heart::after {
@@ -91,7 +98,7 @@ button:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: #ff2d6f;  /* bright pink/red */
+    background: #ff2d6f;
 }
 .heart::before { top: -15px; left: 0; }
 .heart::after { left: 15px; top: 0; }
@@ -116,6 +123,7 @@ button:hover {
     position: absolute;
     bottom: 10px;
     animation: teddyBounce 2s infinite alternate;
+    z-index: 2;
 }
 @keyframes teddyBounce {
     0% { transform: translateY(0); }
@@ -130,6 +138,7 @@ button:hover {
     border-radius: 50%;
     position: absolute;
     animation: explode 1s ease-out forwards;
+    z-index: 2;
 }
 @keyframes explode {
     0% { transform: scale(0); }
@@ -248,15 +257,13 @@ setInterval(()=>{ if(document.getElementById('page4').classList.contains('active
 // ===== Quiz buttons =====
 const yesBtn = document.getElementById('yesBtn');
 const noBtn = document.getElementById('noBtn');
-let noSize = 120;
 yesBtn.onclick = () => showPage(4);
 noBtn.onmouseover = () => {
-    noSize -= 5; if(noSize<30) noSize=30;  // never disappear
-    noBtn.style.width=noSize+'px';
-    noBtn.style.height=noSize/2+'px';
-    noBtn.style.position='absolute';
-    noBtn.style.top=Math.random()*(window.innerHeight-60)+'px';
-    noBtn.style.left=Math.random()*(window.innerWidth-60)+'px';
+    // Shift to a random empty space
+    const padding = 50; // avoid edges
+    noBtn.style.position = 'absolute';
+    noBtn.style.top = padding + Math.random()*(window.innerHeight - 2*padding) + 'px';
+    noBtn.style.left = padding + Math.random()*(window.innerWidth - 2*padding) + 'px';
 }
 </script>
 </body>
