@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Ramia 🎉</title>
+<style>
+/* === General Styles === */
+body{margin:0;font-family:Arial,sans-serif;overflow:hidden;}
+section{display:none;height:100vh;width:100vw;text-align:center;padding:50px;position:relative;box-sizing:border-box;}
+h1,h2,p{margin:20px;color:white;}
+button{padding:12px 25px;font-size:18px;border:none;border-radius:25px;cursor:pointer;margin-top:20px;}
+button:hover{opacity:0.8;}
+/* Hearts */
+.heart{position:absolute;width:20px;height:20px;background-color:red;transform:rotate(45deg);}
+.heart::before,.heart::after{content:"";position:absolute;width:20px;height:20px;background-color:red;border-radius:50%;}
+.heart::before{top:-10px;left:0;}
+.heart::after{left:10px;top:0;}
+/* Falling animation */
+@keyframes fall{0%{top:-50px;}100%{top:100%;}}
+/* Floating hearts */
+@keyframes float{0%{top:100%;}100%{top:-50px;}}
+/* Fireworks (simple dots) */
+.firework{position:absolute;width:8px;height:8px;background:white;border-radius:50%;animation:explode 1s ease-out forwards;}
+@keyframes explode{0%{transform:scale(0);}100%{transform:scale(2);opacity:0;}}
+</style>
+</head>
+<body>
+
+<!-- ====== SECTION 1: Welcome Page ====== -->
+<section id="page1" style="background: linear-gradient(to bottom, #ffccd5, #ffe0e6); display:block;">
+<h1>Welcome, Ramia! 💗</h1>
+<p>
+I hope you’re doing well. Today is a very special day, because it marks the birth of someone truly wonderful.<br>
+Your friend <b>Taha</b> wanted to make this day even more meaningful for you. He cares about you deeply and holds you in the highest respect. He values your presence, your kindness, and the beautiful person you are.<br>
+He wants you to know that you are truly special to him — not just today, but always. 💕
+</p>
+<button onclick="showPage(2)">Next</button>
+</section>
+
+<!-- ====== SECTION 2: Birthday Wish Page ====== -->
+<section id="page2" style="background: linear-gradient(to bottom, #ffccd5, #ffe0e6);">
+<h1>🎉 Happy Birthday, Ramia! 💗</h1>
+<p>
+May Allah always keep you happy and smiling.<br>
+May you never face sadness or disappointment in your life.<br>
+May Allah bless you with endless success, love, and all the happiness you truly deserve.<br>
+You are amazing, and today we celebrate <b>you</b> — your kindness, joy, and the beautiful light you bring into everyone’s life. 🌸
+</p>
+<button onclick="showPage(3)">Next</button>
+</section>
+
+<!-- ====== SECTION 3: Question Page ====== -->
+<section id="page3" style="background: #ffccd5;">
+<h1>There is another surprise for you! 🎀<br>But first, answer a simple question:</h1>
+<h1>Do you also love Taha? 💖</h1>
+<button id="yesBtn" style="top:300px; left:40%;position:absolute;">Yes</button>
+<button id="noBtn" style="top:300px; left:55%;position:absolute;">No</button>
+</section>
+
+<!-- ====== SECTION 4: Surprise Page ====== -->
+<section id="page4" style="background: linear-gradient(to bottom, #ffccd5, #ffe0e6);">
+<h1>Hurray! I knew it! 💕</h1>
+<p>I love you too, Baby 😘<br>The surprise has been sent to you.<br>You can see it!<br>Goodbye and take good care of yourself!</p>
+</section>
+
+<script>
+// ====== Page Navigation ======
+function showPage(num){
+    for(let i=1;i<=4;i++){
+        document.getElementById('page'+i).style.display='none';
+    }
+    document.getElementById('page'+num).style.display='block';
+}
+
+// ====== Falling hearts for Page 1 ======
+function createHeart(){
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.style.left=Math.random()*window.innerWidth+'px';
+    heart.style.animation=`fall ${5+Math.random()*5}s linear infinite`;
+    document.getElementById('page1').appendChild(heart);
+    setTimeout(()=>{heart.remove();},7000);
+}
+setInterval(()=>{if(document.getElementById('page1').style.display=='block') createHeart();},300);
+
+// ====== Floating hearts for Page 2 ======
+function createHeart2(){
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.style.width='15px';
+    heart.style.height='15px';
+    heart.style.left=Math.random()*window.innerWidth+'px';
+    heart.style.animation=`float 6s linear infinite`;
+    document.getElementById('page2').appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(()=>{if(document.getElementById('page2').style.display=='block') createHeart2();},200);
+
+// ====== Quiz Page Buttons ======
+const yesBtn=document.getElementById('yesBtn');
+const noBtn=document.getElementById('noBtn');
+let noSize=100;
+
+yesBtn.onclick=function(){showPage(4);}
+noBtn.onmouseover=function(){
+    noSize-=5;
+    noBtn.style.width=noSize+'px';
+    noBtn.style.height=noSize/2+'px';
+    noBtn.style.top=Math.random()*(window.innerHeight-50)+'px';
+    noBtn.style.left=Math.random()*(window.innerWidth-50)+'px';
+}
+
+</script>
+</body>
+</html>
