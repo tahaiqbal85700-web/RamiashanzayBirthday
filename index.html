@@ -16,19 +16,33 @@ section{
     height:100vh;
     width:100vw;
     text-align:center;
-    padding:50px;
+    padding:50px 20px;
     box-sizing:border-box;
     position:relative;
     transition: all 0.5s;
 }
 h1,h2,p{
-    margin:20px;
+    margin:20px 0;
     color:white;
     text-shadow: 2px 2px 5px #b94d71;
 }
+
+/* === Responsive Text Sizes === */
+h1{
+    font-size:calc(32px + 4vw);
+}
+h2{
+    font-size:calc(24px + 3vw);
+}
+p{
+    font-size:calc(20px + 1.5vw);
+    line-height:1.6;
+}
+
+/* === Buttons === */
 button{
-    padding:15px 30px;
-    font-size:22px;
+    padding:15px 35px;
+    font-size:calc(18px + 1.5vw);
     border:none;
     border-radius:30px;
     cursor:pointer;
@@ -100,14 +114,19 @@ button:hover{
     100%{transform:translateY(-20px);}
 }
 
+/* === Page Backgrounds === */
+#page1{background: linear-gradient(to bottom, #ff4d7a, #ff1e5f);}
+#page2{background: linear-gradient(to bottom, #ff1e5f, #ff73a1);}
+#page3{background: linear-gradient(to bottom, #ff3f6f, #ff1e5f);}
+#page4{background: linear-gradient(to bottom, #ff1e5f, #ff85ad);}
 </style>
 </head>
 <body>
 
 <!-- ====== PAGE 1: Welcome ====== -->
-<section id="page1" style="background: linear-gradient(to bottom, #ff85ad, #ff4d7a); display:block;">
+<section id="page1" style="display:block;">
 <h1>Welcome, Ramia! 💗</h1>
-<p style="font-size:22px;line-height:1.5;">
+<p>
 I hope you’re doing well. Today is a very special day, because it marks the birth of someone truly wonderful.<br>
 Your friend <b>Taha</b> wants to make this day extra special. He cares about you deeply and wants you to know how important you are.<br>
 You are truly special, and he respects and values you immensely. 💕
@@ -118,9 +137,9 @@ You are truly special, and he respects and values you immensely. 💕
 </section>
 
 <!-- ====== PAGE 2: Birthday Wish ====== -->
-<section id="page2" style="background: linear-gradient(to bottom, #ff3f6f, #ff85ad);">
-<h1 style="font-size:45px;">🎉 Happy Birthday, Ramia! 🎂💖</h1>
-<p style="font-size:24px;line-height:1.6;">
+<section id="page2">
+<h1>🎉 Happy Birthday, Ramia! 🎂💖</h1>
+<p>
 May Allah always keep you happy and smiling.<br>
 May you never face sadness or disappointment in life.<br>
 May He bless you with endless success, love, and all the happiness you deserve.<br>
@@ -132,10 +151,10 @@ You are amazing, and today we celebrate <b>you</b>! 🥳✨
 </section>
 
 <!-- ====== PAGE 3: Question ====== -->
-<section id="page3" style="background: #ff4d7a;">
-<h1 style="font-size:40px;">There is another surprise for you! 🎀</h1>
-<h2 style="font-size:32px;">But first, answer a simple question:</h2>
-<h2 style="font-size:36px;">Do you also love Taha? 💖</h2>
+<section id="page3">
+<h1>There is another surprise for you! 🎀</h1>
+<h2>But first, answer a simple question:</h2>
+<h2>Do you also love Taha? 💖</h2>
 <button id="yesBtn" style="top:350px; left:35%;position:absolute;">Yes</button>
 <button id="noBtn" style="top:350px; left:55%;position:absolute;">No</button>
 <img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="left:10%;">
@@ -143,9 +162,9 @@ You are amazing, and today we celebrate <b>you</b>! 🥳✨
 </section>
 
 <!-- ====== PAGE 4: Surprise ====== -->
-<section id="page4" style="background: linear-gradient(to bottom, #ff3f6f, #ff85ad);">
-<h1 style="font-size:45px;">Hurray! I knew it! 💕</h1>
-<p style="font-size:24px;line-height:1.6;">
+<section id="page4">
+<h1>Hurray! I knew it! 💕</h1>
+<p>
 I love you too, Baby 😘<br>
 The surprise has been sent to you.<br>
 You can see it!<br>
