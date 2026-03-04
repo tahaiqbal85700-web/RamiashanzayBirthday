@@ -3,113 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <title>Happy Birthday Ramia 🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 <style>
 /* === General Styles === */
-body{margin:0;font-family:Arial,sans-serif;overflow:hidden;}
-section{display:none;height:100vh;width:100vw;text-align:center;padding:50px;position:relative;box-sizing:border-box;}
-h1,h2,p{margin:20px;color:white;}
-button{padding:12px 25px;font-size:18px;border:none;border-radius:25px;cursor:pointer;margin-top:20px;}
-button:hover{opacity:0.8;}
-/* Hearts */
-.heart{position:absolute;width:20px;height:20px;background-color:red;transform:rotate(45deg);}
-.heart::before,.heart::after{content:"";position:absolute;width:20px;height:20px;background-color:red;border-radius:50%;}
-.heart::before{top:-10px;left:0;}
-.heart::after{left:10px;top:0;}
-/* Falling animation */
+body{
+    margin:0;
+    font-family: 'Dancing Script', cursive;
+    overflow:hidden;
+}
+section{
+    display:none;
+    height:100vh;
+    width:100vw;
+    text-align:center;
+    padding:50px;
+    box-sizing:border-box;
+    position:relative;
+    transition: all 0.5s;
+}
+h1,h2,p{
+    margin:20px;
+    color:white;
+    text-shadow: 2px 2px 5px #b94d71;
+}
+button{
+    padding:15px 30px;
+    font-size:22px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin-top:20px;
+    font-family:'Pacifico', cursive;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg,#ff6aa3,#ff2d6f);
+    color:white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover{
+    transform: scale(1.1);
+    box-shadow: 2px 4px 15px rgba(0,0,0,0.5);
+}
+
+/* === Hearts === */
+.heart{
+    position:absolute;
+    width:25px;
+    height:25px;
+    background-color:#ff3f6f;
+    transform:rotate(45deg);
+    z-index:100;
+}
+.heart::before,.heart::after{
+    content:"";
+    position:absolute;
+    width:25px;
+    height:25px;
+    background-color:#ff3f6f;
+    border-radius:50%;
+}
+.heart::before{top:-12px; left:0;}
+.heart::after{left:12px; top:0;}
 @keyframes fall{0%{top:-50px;}100%{top:100%;}}
-/* Floating hearts */
 @keyframes float{0%{top:100%;}100%{top:-50px;}}
-/* Fireworks (simple dots) */
-.firework{position:absolute;width:8px;height:8px;background:white;border-radius:50%;animation:explode 1s ease-out forwards;}
+
+/* === Fireworks === */
+.firework{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:white;
+    border-radius:50%;
+    animation:explode 1s ease-out forwards;
+}
 @keyframes explode{0%{transform:scale(0);}100%{transform:scale(2);opacity:0;}}
+
+/* === Sparkles === */
+.sparkle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background: #fff5f5;
+    border-radius:50%;
+    animation: sparkleAnim 2s linear infinite;
+}
+@keyframes sparkleAnim{0%{opacity:1;}50%{opacity:0;}100%{opacity:1;}}
+
+/* === Teddy bear === */
+.teddy{
+    position:absolute;
+    width:60px;
+    bottom:10px;
+    animation: teddyBounce 2s infinite alternate;
+}
+@keyframes teddyBounce{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-20px);}
+}
+
 </style>
 </head>
 <body>
 
-<!-- ====== SECTION 1: Welcome Page ====== -->
-<section id="page1" style="background: linear-gradient(to bottom, #ffccd5, #ffe0e6); display:block;">
+<!-- ====== PAGE 1: Welcome ====== -->
+<section id="page1" style="background: linear-gradient(to bottom, #ff85ad, #ff4d7a); display:block;">
 <h1>Welcome, Ramia! 💗</h1>
-<p>
+<p style="font-size:22px;line-height:1.5;">
 I hope you’re doing well. Today is a very special day, because it marks the birth of someone truly wonderful.<br>
-Your friend <b>Taha</b> wanted to make this day even more meaningful for you. He cares about you deeply and holds you in the highest respect. He values your presence, your kindness, and the beautiful person you are.<br>
-He wants you to know that you are truly special to him — not just today, but always. 💕
+Your friend <b>Taha</b> wants to make this day extra special. He cares about you deeply and wants you to know how important you are.<br>
+You are truly special, and he respects and values you immensely. 💕
 </p>
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="left:10%;">
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="right:10%;">
 <button onclick="showPage(2)">Next</button>
 </section>
 
-<!-- ====== SECTION 2: Birthday Wish Page ====== -->
-<section id="page2" style="background: linear-gradient(to bottom, #ffccd5, #ffe0e6);">
-<h1>🎉 Happy Birthday, Ramia! 💗</h1>
-<p>
+<!-- ====== PAGE 2: Birthday Wish ====== -->
+<section id="page2" style="background: linear-gradient(to bottom, #ff3f6f, #ff85ad);">
+<h1 style="font-size:45px;">🎉 Happy Birthday, Ramia! 🎂💖</h1>
+<p style="font-size:24px;line-height:1.6;">
 May Allah always keep you happy and smiling.<br>
-May you never face sadness or disappointment in your life.<br>
-May Allah bless you with endless success, love, and all the happiness you truly deserve.<br>
-You are amazing, and today we celebrate <b>you</b> — your kindness, joy, and the beautiful light you bring into everyone’s life. 🌸
+May you never face sadness or disappointment in life.<br>
+May He bless you with endless success, love, and all the happiness you deserve.<br>
+You are amazing, and today we celebrate <b>you</b>! 🥳✨
 </p>
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="left:15%;">
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="right:15%;">
 <button onclick="showPage(3)">Next</button>
 </section>
 
-<!-- ====== SECTION 3: Question Page ====== -->
-<section id="page3" style="background: #ffccd5;">
-<h1>There is another surprise for you! 🎀<br>But first, answer a simple question:</h1>
-<h1>Do you also love Taha? 💖</h1>
-<button id="yesBtn" style="top:300px; left:40%;position:absolute;">Yes</button>
-<button id="noBtn" style="top:300px; left:55%;position:absolute;">No</button>
+<!-- ====== PAGE 3: Question ====== -->
+<section id="page3" style="background: #ff4d7a;">
+<h1 style="font-size:40px;">There is another surprise for you! 🎀</h1>
+<h2 style="font-size:32px;">But first, answer a simple question:</h2>
+<h2 style="font-size:36px;">Do you also love Taha? 💖</h2>
+<button id="yesBtn" style="top:350px; left:35%;position:absolute;">Yes</button>
+<button id="noBtn" style="top:350px; left:55%;position:absolute;">No</button>
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="left:10%;">
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="right:10%;">
 </section>
 
-<!-- ====== SECTION 4: Surprise Page ====== -->
-<section id="page4" style="background: linear-gradient(to bottom, #ffccd5, #ffe0e6);">
-<h1>Hurray! I knew it! 💕</h1>
-<p>I love you too, Baby 😘<br>The surprise has been sent to you.<br>You can see it!<br>Goodbye and take good care of yourself!</p>
+<!-- ====== PAGE 4: Surprise ====== -->
+<section id="page4" style="background: linear-gradient(to bottom, #ff3f6f, #ff85ad);">
+<h1 style="font-size:45px;">Hurray! I knew it! 💕</h1>
+<p style="font-size:24px;line-height:1.6;">
+I love you too, Baby 😘<br>
+The surprise has been sent to you.<br>
+You can see it!<br>
+Goodbye and take good care of yourself! 💖
+</p>
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="left:20%;">
+<img src="https://i.postimg.cc/1zJxmn8h/teddy1.png" class="teddy" style="right:20%;">
 </section>
 
 <script>
 // ====== Page Navigation ======
 function showPage(num){
-    for(let i=1;i<=4;i++){
-        document.getElementById('page'+i).style.display='none';
-    }
+    for(let i=1;i<=4;i++){document.getElementById('page'+i).style.display='none';}
     document.getElementById('page'+num).style.display='block';
 }
 
-// ====== Falling hearts for Page 1 ======
+// ====== Hearts Page1 ======
 function createHeart(){
     const heart=document.createElement('div');
     heart.className='heart';
     heart.style.left=Math.random()*window.innerWidth+'px';
     heart.style.animation=`fall ${5+Math.random()*5}s linear infinite`;
     document.getElementById('page1').appendChild(heart);
-    setTimeout(()=>{heart.remove();},7000);
+    setTimeout(()=>heart.remove(),7000);
 }
 setInterval(()=>{if(document.getElementById('page1').style.display=='block') createHeart();},300);
 
-// ====== Floating hearts for Page 2 ======
+// ====== Hearts Page2 ======
 function createHeart2(){
     const heart=document.createElement('div');
     heart.className='heart';
     heart.style.width='15px';
     heart.style.height='15px';
     heart.style.left=Math.random()*window.innerWidth+'px';
-    heart.style.animation=`float 6s linear infinite`;
+    heart.style.animation=`float ${4+Math.random()*4}s linear infinite`;
     document.getElementById('page2').appendChild(heart);
-    setTimeout(()=>{heart.remove();},6000);
+    setTimeout(()=>heart.remove(),6000);
 }
 setInterval(()=>{if(document.getElementById('page2').style.display=='block') createHeart2();},200);
 
-// ====== Quiz Page Buttons ======
+// ====== Fireworks Page2 ======
+function createFirework(){
+    const fire=document.createElement('div');
+    fire.className='firework';
+    fire.style.left=Math.random()*window.innerWidth+'px';
+    fire.style.top=Math.random()*window.innerHeight+'px';
+    document.getElementById('page2').appendChild(fire);
+    setTimeout(()=>fire.remove(),1000);
+}
+setInterval(()=>{if(document.getElementById('page2').style.display=='block') createFirework();},500);
+
+// ====== Sparkles Page4 ======
+function createSparkle(){
+    const sp=document.createElement('div');
+    sp.className='sparkle';
+    sp.style.left=Math.random()*window.innerWidth+'px';
+    sp.style.top=Math.random()*window.innerHeight+'px';
+    document.getElementById('page4').appendChild(sp);
+    setTimeout(()=>sp.remove(),2000);
+}
+setInterval(()=>{if(document.getElementById('page4').style.display=='block') createSparkle();},300);
+
+// ====== Quiz Page3 Buttons ======
 const yesBtn=document.getElementById('yesBtn');
 const noBtn=document.getElementById('noBtn');
-let noSize=100;
-
+let noSize=120;
 yesBtn.onclick=function(){showPage(4);}
 noBtn.onmouseover=function(){
     noSize-=5;
+    if(noSize<30) noSize=30;
     noBtn.style.width=noSize+'px';
     noBtn.style.height=noSize/2+'px';
-    noBtn.style.top=Math.random()*(window.innerHeight-50)+'px';
-    noBtn.style.left=Math.random()*(window.innerWidth-50)+'px';
+    noBtn.style.top=Math.random()*(window.innerHeight-60)+'px';
+    noBtn.style.left=Math.random()*(window.innerWidth-60)+'px';
 }
-
 </script>
 </body>
 </html>
